@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>À propos</title>
+    <meta charset="UTF-8">
+    <title>À propos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <h1>À propos de Jeddi Légende</h1>
-  <p>Un projet pour faire vivre les récits du monde de Jeddi.</p>
-  <a href="/">Retour à l'accueil</a>
+    <nav>
+        <a href="{{ url_for('accueil') }}">Accueil</a> |
+        <a href="{{ url_for('about') }}">À propos</a> |
+        <a href="{{ url_for('don') }}">Faire un don</a> |
+        <a href="{{ url_for('jeddi') }}">Jeddi</a> |
+        <a href="{{ url_for('legendes') }}">Légendes</a>
+    </nav>
+    <hr>
+    <h1>À propos du Monde de Jeddi</h1>
+    <p>Voici une page pour expliquer le projet et son histoire.</p>
 </body>
 </html>

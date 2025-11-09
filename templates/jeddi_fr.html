@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeddi - Légendes du Monde de Jeddi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Légendes du Monde de Jeddi</h1>
+    </header>
+
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/about">À propos</a>
+        <a href="/jeddi">Jeddi</a>
+        <a href="/legendes">Légendes</a>
+        <a href="/don">Faire un don</a>
+    </nav>
+
+    <main>
+        <h2>Jeddi, le Voyageur Étoilé</h2>
+        <p>
+            Jeddi, l’enfant des brumes et des aurores, parcourt les royaumes oubliés.  
+            Sa mission : recueillir les récits dispersés dans le vent et leur redonner vie.  
+            Certains disent qu’il parle le langage des dragons, d’autres jurent qu’il marche entre les mondes.
+        </p>
+        <img src="{{ url_for('static', filename='images/grimoire.png') }}" alt="Grimoire des légendes">
+    </main>
+
+    <footer>
+        <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Licorne galopante">
+    </footer>
+</body>
+</html>

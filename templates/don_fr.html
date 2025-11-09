@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Faire un don - Légendes du Monde de Jeddi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Légendes du Monde de Jeddi</h1>
+    </header>
+
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/about">À propos</a>
+        <a href="/jeddi">Jeddi</a>
+        <a href="/legendes">Légendes</a>
+        <a href="/don">Faire un don</a>
+    </nav>
+
+    <main>
+        <h2>Faire un don</h2>
+        <p>
+            Chaque don entretient la flamme du grimoire et garde vivantes les histoires.  
+            Vous pouvez soutenir le projet pour qu’il continue à tisser des récits et des rêves.  
+            Merci pour votre lumière.
+        </p>
+        <img src="{{ url_for('static', filename='images/grimoire.png') }}" alt="Grimoire magique">
+    </main>
+
+    <footer>
+        <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Licorne galopante">
+    </footer>
+</body>
+</html>

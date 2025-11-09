@@ -1,0 +1,53 @@
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f2ec;
+    background-image: url("../static/images/grimoire.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+header {
+    background: url("../static/images/licorne.png") no-repeat center;
+    background-size: cover;
+    height: 180px;
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    padding-top: 60px;
+}
+
+nav {
+    text-align: center;
+    background-color: #d4b483;
+    padding: 10px;
+}
+
+nav a {
+    color: #3b2f2f;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 30px;
+    text-align: center;
+}
+
+footer {
+    position: relative;
+    margin-top: 40px;
+    text-align: center;
+}
+
+footer img {
+    width: 150px;
+    height: auto;
+}

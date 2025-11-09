@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil - Légendes du Monde de Jeddi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Légendes du Monde de Jeddi</h1>
+    </header>
+
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/about">À propos</a>
+        <a href="/jeddi">Jeddi</a>
+        <a href="/legendes">Légendes</a>
+        <a href="/don">Faire un don</a>
+    </nav>
+
+    <main>
+        <h2>Bienvenue dans le monde de Jeddi</h2>
+        <p>Le grimoire s’ouvre... et les légendes prennent vie.</p>
+        <img src="{{ url_for('static', filename='images/grimoire.png') }}" alt="Grimoire ancien">
+    </main>
+
+    <footer>
+        <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Licorne galopante">
+    </footer>
+</body>
+</html>

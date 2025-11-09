@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Légendes - Légendes du Monde de Jeddi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Légendes du Monde de Jeddi</h1>
+    </header>
+
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/about">À propos</a>
+        <a href="/jeddi">Jeddi</a>
+        <a href="/legendes">Légendes</a>
+        <a href="/don">Faire un don</a>
+    </nav>
+
+    <main>
+        <h2>Les Légendes du Monde</h2>
+        <p>
+            Dans le grimoire, mille récits s’enchaînent :  
+            la Reine des Glaces qui pleure des flocons d’or,  
+            le Dragon des Mers qui dort dans les abysses,  
+            et la Licorne du Crépuscule, gardienne des rêves d’enfants.  
+            Chaque histoire, un fragment de lumière.
+        </p>
+        <img src="{{ url_for('static', filename='images/grimoire.png') }}" alt="Grimoire des légendes">
+    </main>
+
+    <footer>
+        <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Licorne galopante">
+    </footer>
+</body>
+</html>

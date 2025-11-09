@@ -2,12 +2,12 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Légendes - Monde de Jeddi</title>
+    <title>Légendes - Légendes du Monde de Jeddi</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 <header>
-    <img src="{{ url_for('static', filename='licorne.png') }}" class="header-banner">
+    <img src="{{ url_for('static', filename='licorne.png') }}" class="header-banner" alt="Licorne">
     <nav>
         <a href="/fr/">Accueil</a>
         <a href="/fr/about">À propos</a>
@@ -28,13 +28,13 @@
 </header>
 
 <main>
-    <h1>Les Légendes</h1>
-    <p>Ici sont contées les épopées, les dragons, les licornes et les héros de Jadis.</p>
-    <img src="{{ url_for('static', filename='grimoire.png') }}" class="grimoire">
+    <h1>Légendes</h1>
+    <p>Explorez les contes et récits magiques qui peuplent le Monde de Jeddi.</p>
+    <img src="{{ url_for('static', filename='licorne.png') }}" class="grimoire" alt="Licorne">
 </main>
 
 <footer>
-    <img src="{{ url_for('static', filename='licorne.gif') }}" alt="licorne">
+    <img src="{{ url_for('static', filename='licorne.gif') }}" alt="Licorne qui galope">
 </footer>
 </body>
 </html>

@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Inicio - Leyendas del Mundo de Jeddi</title>
+    <title>Leggende - Leggende del Mondo di Jeddi</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 <header>
-    <img src="{{ url_for('static', filename='licorne.png') }}" class="header-banner" alt="Unicornio">
+    <img src="{{ url_for('static', filename='licorne.png') }}" class="header-banner" alt="Unicorno">
     <nav>
-        <a href="/es/">Inicio</a>
-        <a href="/es/about">Acerca de</a>
-        <a href="/es/jeddi">Jeddi</a>
-        <a href="/es/legendes">Leyendas</a>
-        <a href="/es/don">Donar</a>
+        <a href="/it/">Home</a>
+        <a href="/it/about">Chi siamo</a>
+        <a href="/it/jeddi">Jeddi</a>
+        <a href="/it/legendes">Leggende</a>
+        <a href="/it/don">Dona</a>
         <div class="dropdown">
-            <button class="dropbtn">Idioma</button>
+            <button class="dropbtn">Lingua</button>
             <div class="dropdown-content">
                 <a href="/fr/">FR</a>
                 <a href="/en/">EN</a>
@@ -28,13 +28,13 @@
 </header>
 
 <main>
-    <h1>Bienvenidos a las Leyendas del Mundo de Jeddi</h1>
-    <p>Aquí nacen los relatos y criaturas de lo maravilloso.</p>
+    <h1>Leggende del Mondo di Jeddi</h1>
+    <p>Scopri le storie e le creature fantastiche che popolano l’universo di Jeddi.</p>
     <img src="{{ url_for('static', filename='grimoire.png') }}" class="grimoire" alt="Grimorio">
 </main>
 
 <footer>
-    <img src="{{ url_for('static', filename='licorne.gif') }}" alt="Unicornio">
+    <img src="{{ url_for('static', filename='licorne.gif') }}" alt="Unicorno">
 </footer>
 </body>
 </html>

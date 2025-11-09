@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Leyendas del Mundo de Jeddi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+    <img src="{{ url_for('static', filename='licorne.png') }}" alt="Banner Unicornio" class="header-banner">
+</header>
+<nav>
+    <a href="/es/">Inicio</a>
+    <a href="/es/about">Acerca de</a>
+    <a href="/es/jeddi">Jeddi</a>
+    <a href="/es/legendes">Leyendas</a>
+    <a href="/es/don">Donar</a>
+    <div class="dropdown">
+        <button class="dropbtn">Idioma 🌐</button>
+        <div class="dropdown-content">
+            <a href="/fr/">Français</a>
+            <a href="/en/">English</a>
+            <a href="/it/">Italiano</a>
+            <a href="/de/">Deutsch</a>
+            <a href="/es/">Español</a>
+        </div>
+    </div>
+</nav>
+<main>
+    <h1>Bienvenido al Mundo de Leyendas de Jeddi</h1>
+    <p>Explora historias mágicas y criaturas míticas con tu grimorio:</p>
+    <img src="{{ url_for('static', filename='grimoire.png') }}" alt="Grimorio" class="grimoire">
+</main>
+<footer>
+    <img src="{{ url_for('static', filename='licorne.gif') }}" alt="Unicornio galopando">
+</footer>
+</body>
+</html>

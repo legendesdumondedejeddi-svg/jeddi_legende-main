@@ -6,30 +6,31 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Légendes du Monde de Jeddi</h1>
-    </header>
+<header></header>
+<nav>
+    <a href="/fr/">Accueil</a>
+    <a href="/fr/about">À propos</a>
+    <a href="/fr/jeddi">Jeddi</a>
+    <a href="/fr/legendes">Légendes</a>
+    <a href="/fr/don">Don</a>
 
-    <nav>
-        <a href="/">Accueil</a>
-        <a href="/about">À propos</a>
-        <a href="/jeddi">Jeddi</a>
-        <a href="/legendes">Légendes</a>
-        <a href="/don">Faire un don</a>
-    </nav>
-
-    <main>
-        <h2>À propos</h2>
-        <p>
-            Le monde de Jeddi est né d’un rêve ancien, tissé d’étoiles et d’encre magique.  
-            Ici, chaque légende garde une part d’ombre, chaque créature porte une vérité oubliée.  
-            Ce projet rend hommage aux conteurs, aux gardiens d’histoires et aux rêveurs de tous les âges.
-        </p>
-        <img src="{{ url_for('static', filename='images/grimoire.png') }}" alt="Grimoire des légendes">
-    </main>
-
-    <footer>
-        <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Licorne galopante">
-    </footer>
+    <div class="dropdown">
+        <button class="dropbtn">Langue 🌐</button>
+        <div class="dropdown-content">
+            <a href="/fr/">Français</a>
+            <a href="/en/">English</a>
+            <a href="/it/">Italiano</a>
+            <a href="/de/">Deutsch</a>
+            <a href="/es/">Español</a>
+        </div>
+    </div>
+</nav>
+<main>
+    <h1>À propos</h1>
+    <p>Ce site raconte les légendes du monde de Jeddi et leurs créatures fascinantes.</p>
+</main>
+<footer>
+    <img src="{{ url_for('static', filename='licorne.gif') }}" alt="licorne">
+</footer>
 </body>
 </html>

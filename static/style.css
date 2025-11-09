@@ -1,64 +1,81 @@
 body {
-<<<<<<< HEAD
     font-family: 'Georgia', serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f2ec;
-    background-image: url("../static/images/grimoire.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+    background-color: #fdf6e3;
+    text-align: center;
 }
 
 header {
-    background: url("../static/images/licorne.png") no-repeat center;
-    background-size: cover;
-    height: 180px;
-    text-align: center;
-    color: white;
-    font-size: 2em;
-    padding-top: 60px;
-}
-
-nav {
-    text-align: center;
-    background-color: #d4b483;
+    background-color: #fff8dc;
+    border-bottom: 2px solid #d2b48c;
     padding: 10px;
 }
 
+.header-banner {
+    width: 100%;
+    max-height: 150px;
+}
+
+nav {
+    margin-top: 10px;
+}
+
 nav a {
-    color: #3b2f2f;
+    margin: 0 10px;
     text-decoration: none;
-    margin: 0 15px;
+    color: #444;
     font-weight: bold;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: #c33;
 }
 
 main {
-    padding: 30px;
-    text-align: center;
-}
-
-footer {
-    position: relative;
-    margin-top: 40px;
-    text-align: center;
+    padding: 20px;
 }
 
 footer img {
-    width: 150px;
-    height: auto;
-=======
-  font-family: Arial, sans-serif;
-  background-color: #faf5f0;
-  color: #333;
-  text-align: center;
-  padding-top: 100px;
+    width: 100px;
+    margin-top: 20px;
 }
-h1 {
-  color: #b37a2d;
->>>>>>> 8aa0d5d6972364103d37df6ab050f2dddd47e639
+
+.grimoire {
+    width: 200px;
+    margin-top: 20px;
+}
+
+/* Menu déroulant pour langues */
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropbtn {
+    background-color: #fff8dc;
+    border: 1px solid #d2b48c;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff8dc;
+    min-width: 70px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }

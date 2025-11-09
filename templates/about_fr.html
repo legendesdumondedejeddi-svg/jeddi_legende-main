@@ -1,36 +1,8 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>À propos - Légendes du Monde de Jeddi</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-<header></header>
-<nav>
-    <a href="/fr/">Accueil</a>
-    <a href="/fr/about">À propos</a>
-    <a href="/fr/jeddi">Jeddi</a>
-    <a href="/fr/legendes">Légendes</a>
-    <a href="/fr/don">Don</a>
-
-    <div class="dropdown">
-        <button class="dropbtn">Langue 🌐</button>
-        <div class="dropdown-content">
-            <a href="/fr/">Français</a>
-            <a href="/en/">English</a>
-            <a href="/it/">Italiano</a>
-            <a href="/de/">Deutsch</a>
-            <a href="/es/">Español</a>
-        </div>
-    </div>
-</nav>
+{% extends "accueil_fr.html" %}
+{% block body %}
 <main>
     <h1>À propos</h1>
-    <p>Ce site raconte les légendes du monde de Jeddi et leurs créatures fascinantes.</p>
+    <p>Les Légendes du Monde de Jeddi sont un projet poétique et fantastique né du souffle des anciens grimoires.</p>
+    <img src="{{ url_for('static', filename='grimoire.png') }}" class="grimoire">
 </main>
-<footer>
-    <img src="{{ url_for('static', filename='licorne.gif') }}" alt="licorne">
-</footer>
-</body>
-</html>
+{% endblock %}

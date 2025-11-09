@@ -6,30 +6,35 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <header>
-        <h1>Légendes du Monde de Jeddi</h1>
-    </header>
-
+<header>
+    <img src="{{ url_for('static', filename='licorne.png') }}" class="header-banner">
     <nav>
-        <a href="/">Accueil</a>
-        <a href="/about">À propos</a>
-        <a href="/jeddi">Jeddi</a>
-        <a href="/legendes">Légendes</a>
-        <a href="/don">Faire un don</a>
+        <a href="/fr/">Accueil</a>
+        <a href="/fr/about">À propos</a>
+        <a href="/fr/jeddi">Jeddi</a>
+        <a href="/fr/legendes">Légendes</a>
+        <a href="/fr/don">Don</a>
+        <div class="dropdown">
+            <button class="dropbtn">Langue</button>
+            <div class="dropdown-content">
+                <a href="/fr/">FR</a>
+                <a href="/en/">EN</a>
+                <a href="/it/">IT</a>
+                <a href="/de/">DE</a>
+                <a href="/es/">ES</a>
+            </div>
+        </div>
     </nav>
+</header>
 
-    <main>
-        <h2>Jeddi, le Voyageur Étoilé</h2>
-        <p>
-            Jeddi, l’enfant des brumes et des aurores, parcourt les royaumes oubliés.  
-            Sa mission : recueillir les récits dispersés dans le vent et leur redonner vie.  
-            Certains disent qu’il parle le langage des dragons, d’autres jurent qu’il marche entre les mondes.
-        </p>
-        <img src="{{ url_for('static', filename='images/grimoire.png') }}" alt="Grimoire des légendes">
-    </main>
+<main>
+    <h1>Jeddi</h1>
+    <p>Jeddi, gardien des contes anciens, veille sur les royaumes oubliés.</p>
+    <img src="{{ url_for('static', filename='grimoire.png') }}" class="grimoire">
+</main>
 
-    <footer>
-        <img src="{{ url_for('static', filename='images/licorne.gif') }}" alt="Licorne galopante">
-    </footer>
+<footer>
+    <img src="{{ url_for('static', filename='licorne.gif') }}" alt="licorne">
+</footer>
 </body>
 </html>

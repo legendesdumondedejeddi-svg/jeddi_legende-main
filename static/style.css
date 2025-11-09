@@ -1,4 +1,5 @@
 body {
+<<<<<<< HEAD
     font-family: 'Georgia', serif;
     margin: 0;
     padding: 0;
@@ -50,4 +51,14 @@ footer {
 footer img {
     width: 150px;
     height: auto;
+=======
+  font-family: Arial, sans-serif;
+  background-color: #faf5f0;
+  color: #333;
+  text-align: center;
+  padding-top: 100px;
+}
+h1 {
+  color: #b37a2d;
+>>>>>>> 8aa0d5d6972364103d37df6ab050f2dddd47e639
 }

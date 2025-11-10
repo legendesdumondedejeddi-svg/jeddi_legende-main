@@ -7,7 +7,7 @@
 </head>
 <body>
 <header>
-    <img src="{{ url_for('static', filename='licorne.png') }}" class="header-banner" alt="Licorne">
+    <img src="{{ url_for('static', filename='licorne.png') }}" class="header-banner">
     <nav>
         <a href="/fr/">Accueil</a>
         <a href="/fr/about">À propos</a>
@@ -28,13 +28,37 @@
 </header>
 
 <main>
-    <h1>À propos</h1>
-    <p>Découvrez l’univers des Légendes du Monde de Jeddi et ses secrets fascinants.</p>
-    <img src="{{ url_for('static', filename='licorne.png') }}" class="grimoire" alt="Licorne">
+    <div class="a-propos-texte">
+        <h1>🕯️ À propos de Légendes du Monde de Jeddi</h1>
+
+        <p><strong>Légendes du Monde de Jeddi</strong> est bien plus qu’un univers imaginaire — c’est un monde vivant, né de la passion, de la créativité et du désir de raconter ensemble.</p>
+
+        <p>Ici, chaque lieu, chaque histoire et chaque personnage porte une part d’âme.</p>
+
+        <p><strong>Légendes du Monde de Jeddi</strong> est un monde en constante évolution, façonné par ceux qui y participent : écrivains, rêveurs, explorateurs, créateurs d’univers.</p>
+
+        <p>Chacun apporte sa pierre, son souffle, sa lumière — et c’est de cette rencontre que naissent les légendes.</p>
+
+        <h2>💫 Notre mission</h2>
+
+        <p>Notre mission est de bâtir un espace où l’imaginaire devient un terrain de jeu commun.</p>
+
+        <p>Un lieu où la créativité est encouragée, où la communauté se rassemble autour du plaisir de créer, où le partage d’idées et d’histoires unit les esprits.</p>
+
+        <p>Ici, la liberté de création est essentielle : chacun peut inventer, rêver et façonner son propre chemin, sans limite autre que celle de son imagination.</p>
+
+        <p>Que tu viennes pour lire, pour écrire, pour jouer ou simplement pour rêver, Jeddi t’ouvre ses portes.</p>
+
+        <p>Ici, les frontières entre la réalité et le mythe s’effacent un peu…</p>
+
+        <p>Et peut-être, au détour d’un sentier ou d’une page, découvriras-tu la légende que tu portes en toi.</p>
+
+        <h2>🌙 Bienvenue dans Légendes du Monde de Jeddi — un monde à rêver, à créer, à vivre.</h2>
+    </div>
 </main>
 
 <footer>
-    <img src="{{ url_for('static', filename='licorne.gif') }}" alt="Licorne qui galope">
+    <img src="{{ url_for('static', filename='licorne.gif') }}" alt="licorne">
 </footer>
 </body>
 </html>

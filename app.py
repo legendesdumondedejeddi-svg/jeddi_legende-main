@@ -24,6 +24,9 @@ for lang in langs:
 @app.route("/")
 def index():
     return render_template("accueil_fr.html")
+@app.route('/jeddi')
+def jeddi_fr():
+    return render_template('jeddi_fr.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -6,29 +6,25 @@ app = Flask(__name__)
 langs = ["fr", "en", "it", "de", "es"]
 pages = ["accueil", "about", "jeddi", "legendes", "don"]
 
-# Création automatique des routes
+# Création automatique des routes pour chaque page et langue
 for lang in langs:
     for page in pages:
         # Route spéciale pour l'accueil
         route = f"/{lang}/" if page == "accueil" else f"/{lang}/{page}"
 
-        # Fonction lambda correcte pour capturer les variables
+        # Fonction lambda pour capturer correctement les variables
         def make_route(p=page, l=lang):
             def route_func():
                 return render_template(f"{p}_{l}.html")
             return route_func
 
-        app.add_url_rule(route, f"{page}_{lang}", make_route())
+        # On ajoute la route avec un endpoint unique pour éviter les doublons
+        app.add_url_rule(route, endpoint=f"{page}_{lang}_auto", view_func=make_route())
 
-# Route par défaut pour la racine (redirige vers l'accueil FR)
+# Route par défaut pour la racine (accueil français)
 @app.route("/")
 def index():
     return render_template("accueil_fr.html")
-
-# Route courte pour Jeddi (redirection vers la version FR)
-@app.route("/jeddi")
-def jeddi_redirect():
-    return render_template("jeddi_fr.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -27,6 +27,5 @@ def index():
 @app.route('/jeddi')
 def jeddi_fr():
     return render_template('jeddi_fr.html')
-
 if __name__ == "__main__":
     app.run(debug=True)

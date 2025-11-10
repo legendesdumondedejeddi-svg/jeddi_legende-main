@@ -20,12 +20,15 @@ for lang in langs:
 
         app.add_url_rule(route, f"{page}_{lang}", make_route())
 
-# Route par défaut pour la racine
+# Route par défaut pour la racine (redirige vers l'accueil FR)
 @app.route("/")
 def index():
     return render_template("accueil_fr.html")
-@app.route('/jeddi')
-def jeddi_fr():
-    return render_template('jeddi_fr.html')
+
+# Route courte pour Jeddi (redirection vers la version FR)
+@app.route("/jeddi")
+def jeddi_redirect():
+    return render_template("jeddi_fr.html")
+
 if __name__ == "__main__":
     app.run(debug=True)

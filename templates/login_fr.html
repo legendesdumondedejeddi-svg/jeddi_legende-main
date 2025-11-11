@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-login">
+    <h1>🔐 Connexion administrateur</h1>
+    <form method="POST" class="login-form">
+        <input type="text" name="username" placeholder="Nom d’utilisateur" required>
+        <input type="password" name="password" placeholder="Mot de passe" required>
+        <button type="submit">Se connecter</button>
+    </form>
+</section>
+{% endblock %}

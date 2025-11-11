@@ -1,81 +1,15 @@
-body {
-    font-family: 'Georgia', serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fdf6e3;
-    text-align: center;
-}
-
-header {
-    background-color: #fff8dc;
-    border-bottom: 2px solid #d2b48c;
-    padding: 10px;
-}
-
-.header-banner {
-    width: 100%;
-    max-height: 150px;
-}
-
-nav {
-    margin-top: 10px;
-}
-
-nav a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #444;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #c33;
-}
-
-main {
-    padding: 20px;
-}
-
-footer img {
-    width: 100px;
-    margin-top: 20px;
-}
-
-.grimoire {
-    width: 200px;
-    margin-top: 20px;
-}
-
-/* Menu déroulant pour langues */
-.dropdown {
-    display: inline-block;
-    position: relative;
-}
-
-.dropbtn {
-    background-color: #fff8dc;
-    border: 1px solid #d2b48c;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 5px 10px;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fff8dc;
-    min-width: 70px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    display: block;
-    padding: 5px;
-    text-decoration: none;
-    color: #333;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+body { font-family: Georgia, serif; background:#f8f4ea; margin:0; padding-bottom:160px; }
+header { background:#5b3a29; color:#fff; padding:12px; text-align:center; }
+nav a { color:#fff; margin:0 8px; text-decoration:none; font-weight:bold; }
+main { padding:20px; max-width:1100px; margin:0 auto; }
+footer { position:fixed; bottom:0; left:0; width:100%; background:#5b3a29; color:#fff; padding:10px; text-align:center; }
+#licorne { position:fixed; bottom:10px; left:-200px; width:150px; animation: courir 12s linear infinite; z-index:999; }
+@keyframes courir { 0%{ left:-200px; } 50%{ left: calc(100% + 200px); transform: scaleX(1); } 51%{ transform: scaleX(-1); } 100%{ left:-200px; transform: scaleX(-1); } }
+.grimoire { max-width:90%; display:block; margin:10px auto; }
+.grid-creatures { display:flex; gap:15px; flex-wrap:wrap; }
+.card { border:1px solid #c9b79a; padding:6px; background:#fffdf6; border-radius:6px; width:220px; text-align:center; }
+.card img { width:100%; border-radius:6px; }
+textarea { width:100%; font-family:inherit; }
+.flashes { list-style:none; padding:0; }
+.flashes li.success { color:green; }
+.flashes li.error { color:red; }

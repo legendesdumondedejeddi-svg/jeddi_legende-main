@@ -1,64 +1,26 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>À propos - Légendes du Monde de Jeddi</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-<header>
-    <img src="{{ url_for('static', filename='licorne.png') }}" class="header-banner">
-    <nav>
-        <a href="/fr/">Accueil</a>
-        <a href="/fr/about">À propos</a>
-        <a href="/fr/jeddi">Jeddi</a>
-        <a href="/fr/legendes">Légendes</a>
-        <a href="/fr/don">Don</a>
-        <div class="dropdown">
-            <button class="dropbtn">Langue</button>
-            <div class="dropdown-content">
-                <a href="/fr/">FR</a>
-                <a href="/en/">EN</a>
-                <a href="/it/">IT</a>
-                <a href="/de/">DE</a>
-                <a href="/es/">ES</a>
-            </div>
-        </div>
-    </nav>
-</header>
-
-<main>
-    <div class="a-propos-texte">
-        <h1>🕯️ À propos de Légendes du Monde de Jeddi</h1>
-
-        <p><strong>Légendes du Monde de Jeddi</strong> est bien plus qu’un univers imaginaire — c’est un monde vivant, né de la passion, de la créativité et du désir de raconter ensemble.</p>
-
-        <p>Ici, chaque lieu, chaque histoire et chaque personnage porte une part d’âme.</p>
-
-        <p><strong>Légendes du Monde de Jeddi</strong> est un monde en constante évolution, façonné par ceux qui y participent : écrivains, rêveurs, explorateurs, créateurs d’univers.</p>
-
-        <p>Chacun apporte sa pierre, son souffle, sa lumière — et c’est de cette rencontre que naissent les légendes.</p>
-
-        <h2>💫 Notre mission</h2>
-
-        <p>Notre mission est de bâtir un espace où l’imaginaire devient un terrain de jeu commun.</p>
-
-        <p>Un lieu où la créativité est encouragée, où la communauté se rassemble autour du plaisir de créer, où le partage d’idées et d’histoires unit les esprits.</p>
-
-        <p>Ici, la liberté de création est essentielle : chacun peut inventer, rêver et façonner son propre chemin, sans limite autre que celle de son imagination.</p>
-
-        <p>Que tu viennes pour lire, pour écrire, pour jouer ou simplement pour rêver, Jeddi t’ouvre ses portes.</p>
-
-        <p>Ici, les frontières entre la réalité et le mythe s’effacent un peu…</p>
-
-        <p>Et peut-être, au détour d’un sentier ou d’une page, découvriras-tu la légende que tu portes en toi.</p>
-
-        <h2>🌙 Bienvenue dans Légendes du Monde de Jeddi — un monde à rêver, à créer, à vivre.</h2>
-    </div>
-</main>
-
-<footer>
-    <img src="{{ url_for('static', filename='licorne.gif') }}" alt="licorne">
-</footer>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<section class="page-about">
+    <h1>🕯️ À propos de Légendes du Monde de Jeddi</h1>
+    <p>
+        Légendes du Monde de Jeddi est bien plus qu’un univers imaginaire — c’est un monde vivant,
+        né de la passion, de la créativité et du désir de raconter ensemble.
+    </p>
+    <p>
+        Ici, chaque lieu, chaque histoire et chaque personnage porte une part d’âme.
+        Légendes du Monde de Jeddi est un monde en constante évolution, façonné par ceux qui y participent :
+        écrivains, rêveurs, explorateurs, créateurs d’univers.
+    </p>
+    <p>
+        💫 Notre mission est de bâtir un espace où l’imaginaire devient un terrain de jeu commun.
+        Un lieu où la créativité est encouragée, où la communauté se rassemble autour du plaisir de créer,
+        où le partage d’idées et d’histoires unit les esprits.
+    </p>
+    <p>
+        Que tu viennes pour lire, pour écrire, pour jouer ou simplement pour rêver, Jeddi t’ouvre ses portes.
+        Ici, les frontières entre la réalité et le mythe s’effacent un peu…
+        Et peut-être, au détour d’un sentier ou d’une page, découvriras-tu la légende que tu portes en toi.
+    </p>
+    <p>🌙 Bienvenue dans Légendes du Monde de Jeddi — un monde à rêver, à créer, à vivre.</p>
+</section>
+{% endblock %}

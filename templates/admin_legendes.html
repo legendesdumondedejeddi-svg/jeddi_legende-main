@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Admin Légendes — Légendes du Monde de Jeddi{% endblock %}
+{% block content %}
+<section>
+  <h2>🔐 Édition des Légendes (admin)</h2>
+  <form method="POST" action="{{ url_for('admin_legendes') }}">
+    <label for="texte">Texte des légendes (respecte la casse et la mise en page) :</label><br>
+    <textarea id="texte" name="texte" rows="20" required>{{ legendes }}</textarea><br>
+    <label for="password">Mot de passe admin :</label><br>
+    <input id="password" name="password" type="password" required placeholder="Mot de passe"><br>
+    <button type="submit">Enregistrer</button>
+  </form>
+</section>
+{% endblock %}

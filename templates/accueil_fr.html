@@ -1,51 +1,34 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang='fr'>
 <head>
-    <meta charset="UTF-8">
-    <title>Accueil - Légendes du Monde de Jeddi</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<meta charset='UTF-8'>
+<title>Accueil - Jeddi</title>
+<link rel='stylesheet' href='/static/css/style.css'>
 </head>
 <body>
 <header>
-    <img src="{{ url_for('static', filename='licorne.png') }}" class="header-banner" alt="Licorne">
-    <nav>
-        <a href="/fr/">Accueil</a>
-        <a href="/fr/about">À propos</a>
-        <a href="/fr/jeddi">Jeddi</a>
-        <a href="/fr/legendes">Légendes</a>
-        <a href="/fr/don">Don</a>
-        <div class="dropdown">
-            <button class="dropbtn">Langue</button>
-            <div class="dropdown-content">
-                <a href="/fr/">FR</a>
-                <a href="/en/">EN</a>
-                <a href="/it/">IT</a>
-                <a href="/de/">DE</a>
-                <a href="/es/">ES</a>
-            </div>
-        </div>
-    </nav>
+<h1>Bienvenue dans le Monde de Jeddi</h1>
+<nav>
+<select onchange='location = this.value'>
+<option value='/fr/accueil'>FR</option>
+<option value='/en/accueil'>EN</option>
+<option value='/es/accueil'>ES</option>
+<option value='/de/accueil'>DE</option>
+<option value='/it/accueil'>IT</option>
+</select>
+<a href='/fr/jeddi'>Jeddi</a>
+<a href='/fr/legendes'>Légendes</a>
+<a href='/fr/galerie'>Galerie</a>
+<a href='/fr/don'>Don</a>
+</nav>
 </header>
-
 <main>
-    <div class="accueil-texte">
-  <h1>🌠 Bienvenue dans Légendes du Monde de Jeddi</h1>
-  <p>On dit qu’au-delà du temps et des frontières connues existe un monde façonné par les rêves et les histoires de ceux qui y ont cru : le Monde de Jeddi.</p>
-  <p>Ici, chaque colline porte les traces des anciens, chaque vent murmure des noms oubliés, et chaque étoile veille sur les âmes courageuses qui osent encore écrire leur légende.</p>
-  <p>Certains arrivent en quête d’aventure, d’autres pour trouver un sens, ou simplement un endroit où appartenir.</p>
-  <p>Mais tous finissent par comprendre que Jeddi n’est pas seulement un monde à découvrir — c’est une expérience à vivre, une histoire à raconter.</p>
-  <p>Alors, entre. Laisse le quotidien derrière toi.</p>
-  <p>Écoute les échos des légendes, fais tes premiers pas sur cette terre vivante, et laisse ton nom s’inscrire parmi ceux que le vent porte au crépuscule.</p>
-  <h2>✨ Bienvenue, voyageur. Le Monde de Jeddi t’attend.</h2>
-</div>
-.
-</p>
-    <p>Ici naissent les récits et les créatures du merveilleux.</p>
-    <img src="{{ url_for('static', filename='grimoire.png') }}" class="grimoire" alt="Grimoire">
+<img src='/static/images/grimoire.png' style='width:100%;height:auto;'>
+<p>Ici vous découvrirez toutes les légendes et contes.</p>
 </main>
-
 <footer>
-    <img src="{{ url_for('static', filename='licorne.gif') }}" alt="Licorne qui galope">
+<p>&copy; 2025 Légendes du Monde de Jeddi</p>
+<img src='/static/images/licorne.gif' style='position:fixed;bottom:0;left:0;width:100px;'>
 </footer>
 </body>
 </html>

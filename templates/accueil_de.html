@@ -1,40 +1,34 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang='fr'>
 <head>
-    <meta charset="UTF-8">
-    <title>Startseite - Legenden der Welt von Jeddi</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<meta charset='UTF-8'>
+<title>Accueil - Jeddi</title>
+<link rel='stylesheet' href='/static/css/style.css'>
 </head>
 <body>
 <header>
-    <img src="{{ url_for('static', filename='licorne.png') }}" class="header-banner" alt="Einhorn">
-    <nav>
-        <a href="/de/">Startseite</a>
-        <a href="/de/about">Über uns</a>
-        <a href="/de/jeddi">Jeddi</a>
-        <a href="/de/legendes">Legenden</a>
-        <a href="/de/don">Spenden</a>
-        <div class="dropdown">
-            <button class="dropbtn">Sprache</button>
-            <div class="dropdown-content">
-                <a href="/fr/">FR</a>
-                <a href="/en/">EN</a>
-                <a href="/it/">IT</a>
-                <a href="/de/">DE</a>
-                <a href="/es/">ES</a>
-            </div>
-        </div>
-    </nav>
+<h1>Bienvenue dans le Monde de Jeddi</h1>
+<nav>
+<select onchange='location = this.value'>
+<option value='/fr/accueil'>FR</option>
+<option value='/en/accueil'>EN</option>
+<option value='/es/accueil'>ES</option>
+<option value='/de/accueil'>DE</option>
+<option value='/it/accueil'>IT</option>
+</select>
+<a href='/fr/jeddi'>Jeddi</a>
+<a href='/fr/legendes'>Légendes</a>
+<a href='/fr/galerie'>Galerie</a>
+<a href='/fr/don'>Don</a>
+</nav>
 </header>
-
 <main>
-    <h1>Willkommen bei den Legenden der Welt von Jeddi</h1>
-    <p>Hier entstehen die Geschichten und Kreaturen des Wunderbaren.</p>
-    <img src="{{ url_for('static', filename='grimoire.png') }}" class="grimoire" alt="Grimoire">
+<img src='/static/images/grimoire.png' style='width:100%;height:auto;'>
+<p>Ici vous découvrirez toutes les légendes et contes.</p>
 </main>
-
 <footer>
-    <img src="{{ url_for('static', filename='licorne.gif') }}" alt="Einhorn">
+<p>&copy; 2025 Légendes du Monde de Jeddi</p>
+<img src='/static/images/licorne.gif' style='position:fixed;bottom:0;left:0;width:100px;'>
 </footer>
 </body>
 </html>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Galerie — Légendes du Monde de Jeddi{% endblock %}
+{% block content %}
+<section>
+  <h2>🦄 Galerie des Créatures</h2>
+  <div class="grid-creatures">
+    {% if creatures %}
+      {% for c in creatures %}
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/creatures/' ~ c) }}" alt="{{ c }}">
+          <p>{{ c }}</p>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>Aucune créature trouvée dans static/images/creatures/</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,1 +1,45 @@
-<html>Contenu Légendes en français...</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>📖 Legends of the World of Jeddi</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <style>
+    body{margin:0;padding:0;background:url("/static/images/grimoire.jpg")no-repeat center center fixed;background-size:cover;font-family:"Georgia",serif;color:#fdfdfd;text-shadow:1px 1px 2px black;}
+    header{background-color:rgba(0,0,0,0.6);padding:15px;text-align:center;font-size:1.5em;font-weight:bold;}
+    main{margin:40px auto;width:80%;max-width:900px;background-color:rgba(0,0,0,0.65);border-radius:15px;padding:25px;box-shadow:0 0 15px #222;}
+    h1{text-align:center;color:#ffcc66;}
+    textarea{width:100%;height:300px;padding:10px;font-family:"Georgia",serif;font-size:1.1em;border-radius:10px;border:none;background-color:rgba(255,255,255,0.85);color:#000;}
+    input[type="password"]{width:50%;padding:10px;font-size:1em;border-radius:10px;border:none;align-self:center;text-align:center;}
+    button{width:200px;padding:12px;font-size:1.1em;font-weight:bold;align-self:center;border-radius:10px;border:none;cursor:pointer;background-color:#ffcc66;color:#222;transition:0.3s;}
+    button:hover{background-color:#ffdb99;}
+    footer{position:fixed;bottom:0;width:100%;background:rgba(0,0,0,0.8);text-align:center;padding:10px;color:#ddd;font-size:0.9em;}
+    .licorne{position:fixed;bottom:20px;left:0;width:120px;animation:run 15s linear infinite;}
+    @keyframes run{from{left:-150px;}to{left:110%;}}
+  </style>
+</head>
+<body>
+  <header>✨ Legends of the World of Jeddi ✨</header>
+  <main>
+    <h1>Write or read the Legends</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul style="color: #ffcc66;">
+          {% for msg in messages %}
+            <li>{{ msg }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form method="POST" action="/en/legendes">
+      <textarea name="legend_text" placeholder="Write your legends here...">{{ legend_text }}</textarea>
+      <input type="password" name="password" placeholder="Administrator password">
+      <button type="submit">💾 Save</button>
+    </form>
+  </main>
+  <footer>
+    <img src="/static/images/licorne.gif" alt="Magic unicorn" class="licorne">
+    © 2025 Legends of the World of Jeddi – All rights reserved
+  </footer>
+</body>
+</html>

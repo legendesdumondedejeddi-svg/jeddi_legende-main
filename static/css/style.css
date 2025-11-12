@@ -1,13 +1,38 @@
-body { font-family: Arial, sans-serif; background: #f5f5f5; margin:0; padding:0;}
-header { background: #900; padding: 10px; }
-header ul { list-style: none; margin:0; padding:0; display:flex; gap:15px; }
-header a { color: #fff; text-decoration: none; font-weight:bold;}
-main { padding: 20px; text-align:center;}
-.grimoire { width:300px;}
-.grimoire-full { width:80%; margin: 20px auto; display:block;}
-.licorne { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width:150px; z-index:10;}
-footer { background: #222; color: #fff; padding:10px; position:relative; bottom:0; width:100%; text-align:center;}
-.flash { color:red;}
-.gallery img { width:200px; margin:10px;}
-textarea { width:80%; margin-top:10px;}
-button { padding:10px 20px; background:#900; color:#fff; border:none; cursor:pointer;}
+body {
+    background-color: #f8f5f2;
+    font-family: "Georgia", serif;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+header {
+    background-color: #3a2d2d;
+    color: #fff;
+    padding: 1em;
+}
+nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+footer {
+    background-color: #3a2d2d;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.licorne {
+    width: 150px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    animation: courir 8s linear infinite;
+}
+@keyframes courir {
+    0% { right: -150px; }
+    100% { right: 100%; }
+}

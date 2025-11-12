@@ -1,26 +1,31 @@
-{% extends "base.html" %}
-{% block content %}
-<section class="page-about">
-    <h1>🕯️ À propos de Légendes du Monde de Jeddi</h1>
-    <p>
-        Légendes du Monde de Jeddi est bien plus qu’un univers imaginaire — c’est un monde vivant,
-        né de la passion, de la créativité et du désir de raconter ensemble.
-    </p>
-    <p>
-        Ici, chaque lieu, chaque histoire et chaque personnage porte une part d’âme.
-        Légendes du Monde de Jeddi est un monde en constante évolution, façonné par ceux qui y participent :
-        écrivains, rêveurs, explorateurs, créateurs d’univers.
-    </p>
-    <p>
-        💫 Notre mission est de bâtir un espace où l’imaginaire devient un terrain de jeu commun.
-        Un lieu où la créativité est encouragée, où la communauté se rassemble autour du plaisir de créer,
-        où le partage d’idées et d’histoires unit les esprits.
-    </p>
-    <p>
-        Que tu viennes pour lire, pour écrire, pour jouer ou simplement pour rêver, Jeddi t’ouvre ses portes.
-        Ici, les frontières entre la réalité et le mythe s’effacent un peu…
-        Et peut-être, au détour d’un sentier ou d’une page, découvriras-tu la légende que tu portes en toi.
-    </p>
-    <p>🌙 Bienvenue dans Légendes du Monde de Jeddi — un monde à rêver, à créer, à vivre.</p>
-</section>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>À propos – Légendes du Monde de Jeddi</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>À propos du Monde de Jeddi</h1>
+    <nav>
+      <select onchange="location = this.value;">
+        <option value="/fr/accueil">Accueil</option>
+        <option value="/fr/about" selected>À propos</option>
+        <option value="/fr/jeddi">Jeddi</option>
+        <option value="/fr/galerie">Galerie</option>
+        <option value="/fr/legendes">Légendes</option>
+        <option value="/fr/don">Faire un don</option>
+      </select>
+    </nav>
+  </header>
+
+  <main>
+    <p>Le projet « Légendes du Monde de Jeddi » est né d’un rêve : réunir contes, symboles et mythes des civilisations disparues.  
+    Ce site garde vivantes les histoires qui ont façonné l’imaginaire des peuples.</p>
+  </main>
+
+  <footer>© 2025 Légendes du Monde de Jeddi</footer>
+  <img src="/static/images/licorne.gif" class="licorne" alt="Licorne magique">
+</body>
+</html>

@@ -1,34 +1,32 @@
 <!DOCTYPE html>
-<html lang='fr'>
+<html lang="fr">
 <head>
-<meta charset='UTF-8'>
-<title>Accueil - Jeddi</title>
-<link rel='stylesheet' href='/static/css/style.css'>
+  <meta charset="utf-8">
+  <title>Accueil – Légendes du Monde de Jeddi</title>
+  <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-<header>
-<h1>Bienvenue dans le Monde de Jeddi</h1>
-<nav>
-<select onchange='location = this.value'>
-<option value='/fr/accueil'>FR</option>
-<option value='/en/accueil'>EN</option>
-<option value='/es/accueil'>ES</option>
-<option value='/de/accueil'>DE</option>
-<option value='/it/accueil'>IT</option>
-</select>
-<a href='/fr/jeddi'>Jeddi</a>
-<a href='/fr/legendes'>Légendes</a>
-<a href='/fr/galerie'>Galerie</a>
-<a href='/fr/don'>Don</a>
-</nav>
-</header>
-<main>
-<img src='/static/images/grimoire.png' style='width:100%;height:auto;'>
-<p>Ici vous découvrirez toutes les légendes et contes.</p>
-</main>
-<footer>
-<p>&copy; 2025 Légendes du Monde de Jeddi</p>
-<img src='/static/images/licorne.gif' style='position:fixed;bottom:0;left:0;width:100px;'>
-</footer>
+  <header>
+    <h1>Légendes du Monde de Jeddi</h1>
+    <nav>
+      <select onchange="location = this.value;">
+        <option value="/fr/accueil" selected>Accueil</option>
+        <option value="/fr/about">À propos</option>
+        <option value="/fr/jeddi">Jeddi</option>
+        <option value="/fr/galerie">Galerie</option>
+        <option value="/fr/legendes">Légendes</option>
+        <option value="/fr/don">Faire un don</option>
+      </select>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Bienvenue dans le Monde de Jeddi</h2>
+    <p>Explorez les contes oubliés, les royaumes anciens et les légendes d’un autre temps.  
+    Ici, chaque histoire murmure les secrets du passé...</p>
+    <img src="/static/images/licorne.gif" class="licorne" alt="Licorne magique">
+  </main>
+
+  <footer>© 2025 Légendes du Monde de Jeddi</footer>
 </body>
 </html>

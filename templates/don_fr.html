@@ -1,1 +1,35 @@
-<html>Page de dons avec PayPal...</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Faire un Don</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Soutenez les Légendes du Monde de Jeddi</h1>
+    <nav>
+      <select onchange="location = this.value;">
+        <option value="/fr/accueil">Accueil</option>
+        <option value="/fr/about">À propos</option>
+        <option value="/fr/jeddi">Jeddi</option>
+        <option value="/fr/galerie">Galerie</option>
+        <option value="/fr/legendes">Légendes</option>
+        <option value="/fr/don" selected>Faire un don</option>
+      </select>
+    </nav>
+  </header>
+
+  <main>
+    <p>Merci de soutenir ce projet de sauvegarde des légendes anciennes.</p>
+    <form action="https://www.paypal.com/donate" method="post" target="_blank">
+      <input type="hidden" name="business" value="ton-email-paypal@example.com">
+      <input type="hidden" name="currency_code" value="EUR">
+      <input type="submit" value="💖 Faire un don via PayPal">
+    </form>
+  </main>
+
+  <footer>© 2025 Légendes du Monde de Jeddi</footer>
+  <img src="/static/images/licorne.gif" class="licorne" alt="Licorne magique">
+</body>
+</html>

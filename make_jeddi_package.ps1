@@ -1,137 +1,243 @@
-# make_jeddi_package.ps1
-# Génère toutes les pages HTML pour Jeddi Legende
+# ============================
+# 🌠 Script de création du projet : Légendes du Monde de Jeddi
+# ============================
 
-# Dossier des pages
-$baseFolder = Get-Location
+# Nom du dossier principal
+$project = "jeddi_legende-main"
 
-# Langues et pages
-$langs = @("fr", "en", "es", "de", "it")
-$pages = @("accueil", "jeddi", "legendes", "galerie", "don")
+Write-Host "✨ Création du projet '$project'..."
 
-# Texte de base pour chaque page et langue
-$texts = @{
-    "accueil" = @{
-        "fr" = "Bienvenue dans le Monde de Jeddi"
-        "en" = "Welcome to the World of Jeddi"
-        "es" = "Bienvenido al Mundo de Jeddi"
-        "de" = "Willkommen in der Welt von Jeddi"
-        "it" = "Benvenuti nel Mondo di Jeddi"
-    }
-    "jeddi" = @{
-        "fr" = "La légende de Jeddi"
-        "en" = "The Legend of Jeddi"
-        "es" = "La leyenda de Jeddi"
-        "de" = "Die Legende von Jeddi"
-        "it" = "La leggenda di Jeddi"
-    }
-    "legendes" = @{
-        "fr" = "Écrivez vos légendes ici (admin uniquement)"
-        "en" = "Write your legends here (admin only)"
-        "es" = "Escribe tus leyendas aquí (solo admin)"
-        "de" = "Schreiben Sie hier Ihre Legenden (nur Admin)"
-        "it" = "Scrivi qui le tue leggende (solo admin)"
-    }
-    "galerie" = @{
-        "fr" = "Galerie des Créatures"
-        "en" = "Creatures Gallery"
-        "es" = "Galería de Criaturas"
-        "de" = "Galerie der Kreaturen"
-        "it" = "Galleria delle Creature"
-    }
-    "don" = @{
-        "fr" = "Faites un don"
-        "en" = "Make a donation"
-        "es" = "Haz una donación"
-        "de" = "Spenden"
-        "it" = "Fai una donazione"
-    }
+# Création de la structure des dossiers
+New-Item -ItemType Directory -Force -Path "$project"
+New-Item -ItemType Directory -Force -Path "$project\templates"
+New-Item -ItemType Directory -Force -Path "$project\static\images"
+New-Item -ItemType Directory -Force -Path "$project\static\css"
+New-Item -ItemType Directory -Force -Path "$project\legendes"
+
+# ============================
+# 📜 Création du fichier app.py
+# ============================
+$appCode = @'
+from flask import Flask, render_template, request, redirect, url_for, flash
+import os
+
+app = Flask(__name__)
+app.secret_key = "JeddiSecretKey987"
+ADMIN_PASSWORD = "1997.Monde-1958-Jeddi.1998"
+LANGS = ["fr", "en", "es", "de", "it"]
+
+SAVE_FOLDER = "legendes"
+os.makedirs(SAVE_FOLDER, exist_ok=True)
+
+def load_legend(lang):
+    filepath = os.path.join(SAVE_FOLDER, f"legende_{lang}.txt")
+    if os.path.exists(filepath):
+        with open(filepath, "r", encoding="utf-8") as f:
+            return f.read()
+    return ""
+
+def save_legend(lang, text):
+    filepath = os.path.join(SAVE_FOLDER, f"legende_{lang}.txt")
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(text)
+
+@app.route("/")
+def index():
+    return redirect("/fr/accueil")
+
+PAGES = ["accueil", "jeddi", "galerie", "don"]
+
+for lang in LANGS:
+    for page in PAGES:
+        route = f"/{lang}/{page}"
+        def make_page_route(p=page, l=lang):
+            def route_func():
+                return render_template(f"{p}_{l}.html")
+            return route_func
+        app.add_url_rule(route, f"{page}_{lang}", make_page_route())
+
+@app.route("/<lang>/legendes", methods=["GET", "POST"])
+def legendes(lang):
+    if lang not in LANGS:
+        return redirect("/fr/legendes")
+
+    legend_text = load_legend(lang)
+
+    if request.method == "POST":
+        text = request.form.get("legend_text", "").strip()
+        password = request.form.get("password", "")
+
+        if password == ADMIN_PASSWORD:
+            save_legend(lang, text)
+            flash("✅ Légende enregistrée avec succès.")
+            legend_text = text
+        else:
+            flash("❌ Mot de passe incorrect.")
+
+    return render_template(f"legendes_{lang}.html", legend_text=legend_text)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+'@
+
+Set-Content -Path "$project\app.py" -Value $appCode -Encoding UTF8
+
+# ============================
+# 📦 Fichier requirements.txt
+# ============================
+$requirements = @'
+Flask==3.0.3
+gunicorn
+'@
+Set-Content -Path "$project\requirements.txt" -Value $requirements -Encoding UTF8
+
+# ============================
+# 🎨 Fichier style.css
+# ============================
+$style = @'
+body {
+    background-color: #f8f5f2;
+    font-family: "Georgia", serif;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
+header {
+    background-color: #3a2d2d;
+    color: #fff;
+    padding: 1em;
+}
+nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+footer {
+    background-color: #3a2d2d;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.licorne {
+    width: 150px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    animation: courir 8s linear infinite;
+}
+@keyframes courir {
+    0% { right: -150px; }
+    100% { right: 100%; }
+}
+'@
+Set-Content -Path "$project\static\css\style.css" -Value $style -Encoding UTF8
 
-# Menu global
-$menu = @("Accueil", "Jeddi", "Légendes", "Galerie", "Don")
-
-# Fonction pour créer chaque page
-function Create-HTMLPage {
-    param(
-        [string]$page,
-        [string]$lang,
-        [string]$text
-    )
-
-    $filename = "$($page)_$($lang).html"
-    $filepath = Join-Path $baseFolder $filename
-
-    $htmlContent = @"
-<!DOCTYPE html>
-<html lang="$lang">
-<head>
-    <meta charset="UTF-8">
-    <title>$text</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f0f0f0; margin:0; padding:0;}
-        header { background-color: #8B0000; color: white; padding: 10px;}
-        nav a { margin: 0 10px; color: white; text-decoration: none; font-weight: bold;}
-        footer { background-color: #222; color: white; text-align: center; padding: 10px; position: relative;}
-        .licorne { position: fixed; bottom: 0; left: 0; width: 150px; animation: move 10s linear infinite;}
-        @keyframes move { 0% {left:0;} 50% {left:80%;} 100% {left:0;} }
-        .content { padding: 20px; min-height: 80vh; background-image: url('grimoire.jpg'); background-size: cover; }
-        h1 { color: #8B0000;}
-        textarea { width: 100%; height: 200px; }
-        button { padding: 10px 20px; background-color: #8B0000; color: white; border: none; cursor: pointer; }
-    </style>
-</head>
+# ============================
+# 📃 Création des fichiers HTML pour 5 langues
+# ============================
+$languages = @("fr", "en", "es", "de", "it")
+foreach ($lang in $languages) {
+    # Accueil
+    Set-Content "$project\templates\accueil_$lang.html" "<!DOCTYPE html>
+<html lang='$lang'>
+<head><meta charset='utf-8'><title>Accueil</title><link rel='stylesheet' href='/static/css/style.css'></head>
 <body>
-<header>
-    <nav>
-        <a href="accueil_$lang.html">Accueil</a>
-        <a href="jeddi_$lang.html">Jeddi</a>
-        <a href="legendes_$lang.html">Légendes</a>
-        <a href="galerie_$lang.html">Galerie</a>
-        <a href="don_$lang.html">Don</a>
-    </nav>
-</header>
-<div class="content">
-    <h1>$text</h1>
-    <!-- Page spécifique -->
-"@
+<header><h1>Légendes du Monde de Jeddi</h1>
+<nav>
+<a href='/$lang/accueil'>Accueil</a> |
+<a href='/$lang/jeddi'>Jeddi</a> |
+<a href='/$lang/galerie'>Galerie</a> |
+<a href='/$lang/legendes'>Légendes</a> |
+<a href='/$lang/don'>Don</a>
+</nav></header>
+<main><h2>Bienvenue dans Légendes du Monde de Jeddi</h2>
+<p>Explorez les mondes anciens et les légendes oubliées...</p></main>
+<footer>© 2025 Légendes du Monde de Jeddi</footer>
+<img src='/static/images/licorne.gif' class='licorne'>
+</body></html>"
 
-    if ($page -eq "legendes") {
-        $htmlContent += @"
-    <form method='POST'>
-        <textarea placeholder='Écrivez ici vos légendes (admin)'></textarea><br>
-        <button type='submit'>Enregistrer</button>
-    </form>
-"@
-    }
+    # Jeddi
+    Set-Content "$project\templates\jeddi_$lang.html" "<!DOCTYPE html>
+<html lang='$lang'>
+<head><meta charset='utf-8'><title>Jeddi</title><link rel='stylesheet' href='/static/css/style.css'></head>
+<body>
+<header><h1>Jeddi — Le Gardien des Légendes</h1>
+<nav>
+<a href='/$lang/accueil'>Accueil</a> |
+<a href='/$lang/jeddi'>Jeddi</a> |
+<a href='/$lang/galerie'>Galerie</a> |
+<a href='/$lang/legendes'>Légendes</a> |
+<a href='/$lang/don'>Don</a>
+</nav></header>
+<main>
+<p>Jeddi voyage à travers le temps pour préserver la mémoire des contes anciens.</p>
+</main>
+<footer>© 2025 Légendes du Monde de Jeddi</footer>
+<img src='/static/images/licorne.gif' class='licorne'>
+</body></html>"
 
-    if ($page -eq "don") {
-        $htmlContent += @"
-    <p>Vous pouvez faire un don via PayPal.</p>
-    <form action='https://www.paypal.com/donate' method='post' target='_blank'>
-        <input type='hidden' name='hosted_button_id' value='TON_CODE_PAYPAL'>
-        <button type='submit'>Donner</button>
-    </form>
-"@
-    }
+    # Légendes
+    Set-Content "$project\templates\legendes_$lang.html" "<!DOCTYPE html>
+<html lang='$lang'>
+<head><meta charset='utf-8'><title>Légendes</title><link rel='stylesheet' href='/static/css/style.css'></head>
+<body>
+<header><h1>Grimoire des Légendes</h1>
+<nav>
+<a href='/$lang/accueil'>Accueil</a> |
+<a href='/$lang/jeddi'>Jeddi</a> |
+<a href='/$lang/galerie'>Galerie</a> |
+<a href='/$lang/legendes'>Légendes</a> |
+<a href='/$lang/don'>Don</a>
+</nav></header>
+<main>
+<form method='POST'>
+<textarea name='legend_text' rows='10' cols='80' placeholder='Écris ta légende ici...'>{{ legend_text }}</textarea><br>
+<input type='password' name='password' placeholder='Mot de passe administrateur'><br>
+<button type='submit'>💾 Enregistrer</button>
+</form>
+</main>
+<footer>© 2025 Légendes du Monde de Jeddi</footer>
+<img src='/static/images/licorne.gif' class='licorne'>
+</body></html>"
 
-    $htmlContent += @"
-</div>
-<img src='licorne.gif' class='licorne' alt='Licorne'>
-<footer>© 2025 Monde de Jeddi</footer>
-</body>
-</html>
-"@
+    # Galerie
+    Set-Content "$project\templates\galerie_$lang.html" "<!DOCTYPE html>
+<html lang='$lang'>
+<head><meta charset='utf-8'><title>Galerie des Créatures</title><link rel='stylesheet' href='/static/css/style.css'></head>
+<body>
+<header><h1>Galerie des Créatures</h1>
+<nav>
+<a href='/$lang/accueil'>Accueil</a> |
+<a href='/$lang/jeddi'>Jeddi</a> |
+<a href='/$lang/galerie'>Galerie</a> |
+<a href='/$lang/legendes'>Légendes</a> |
+<a href='/$lang/don'>Don</a>
+</nav></header>
+<main><p>Explore les créatures mythiques du Monde de Jeddi.</p></main>
+<footer>© 2025 Légendes du Monde de Jeddi</footer>
+<img src='/static/images/licorne.gif' class='licorne'>
+</body></html>"
 
-    # Écrire le fichier
-    Set-Content -Path $filepath -Value $htmlContent -Encoding UTF8
-    Write-Host "Page créée : $filename"
+    # Don
+    Set-Content "$project\templates\don_$lang.html" "<!DOCTYPE html>
+<html lang='$lang'>
+<head><meta charset='utf-8'><title>Faire un Don</title><link rel='stylesheet' href='/static/css/style.css'></head>
+<body>
+<header><h1>Soutenez Légendes du Monde de Jeddi</h1></header>
+<main><p>Merci de soutenir notre projet. Vos dons permettent de préserver les contes anciens.</p>
+<form action='https://www.paypal.com/donate' method='post' target='_blank'>
+<input type='hidden' name='business' value='ton-email-paypal@example.com'>
+<input type='hidden' name='currency_code' value='EUR'>
+<input type='submit' value='Faire un don via PayPal'>
+</form></main>
+<footer>© 2025 Légendes du Monde de Jeddi</footer>
+<img src='/static/images/licorne.gif' class='licorne'>
+</body></html>"
 }
 
-# Boucle pour toutes les langues et pages
-foreach ($lang in $langs) {
-    foreach ($page in $pages) {
-        Create-HTMLPage -page $page -lang $lang -text $texts[$page][$lang]
-    }
-}
-
-Write-Host "`nToutes les pages HTML ont été générées !"
+Write-Host "✅ Projet complet créé avec succès !"
+Write-Host "👉 Dossier prêt : $project"

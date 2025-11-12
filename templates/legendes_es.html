@@ -1,1 +1,33 @@
-<html>Contenu Légendes en français...</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>📖 Leyendas del Mundo de Jeddi</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <style>/* même style que les autres */</style>
+</head>
+<body>
+  <header>✨ Leyendas del Mundo de Jeddi ✨</header>
+  <main>
+    <h1>Escribe o consulta las leyendas</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul style="color: #ffcc66;">
+          {% for msg in messages %}
+            <li>{{ msg }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form method="POST" action="/es/legendes">
+      <textarea name="legend_text" placeholder="Escribe tus leyendas aquí...">{{ legend_text }}</textarea>
+      <input type="password" name="password" placeholder="Contraseña de administrador">
+      <button type="submit">💾 Guardar</button>
+    </form>
+  </main>
+  <footer>
+    <img src="/static/images/licorne.gif" alt="Unicornio mágico" class="licorne">
+    © 2025 Leyendas del Mundo de Jeddi – Todos los derechos reservados
+  </footer>
+</body>
+</html>

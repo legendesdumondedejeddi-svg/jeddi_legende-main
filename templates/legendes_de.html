@@ -1,1 +1,33 @@
-<html>Contenu Légendes en français...</html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>📖 Legenden der Welt von Jeddi</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <style>/* même style que les autres */</style>
+</head>
+<body>
+  <header>✨ Legenden der Welt von Jeddi ✨</header>
+  <main>
+    <h1>Schreiben oder lesen Sie die Legenden</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul style="color: #ffcc66;">
+          {% for msg in messages %}
+            <li>{{ msg }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form method="POST" action="/de/legendes">
+      <textarea name="legend_text" placeholder="Schreibe hier deine Legenden...">{{ legend_text }}</textarea>
+      <input type="password" name="password" placeholder="Administrator-Passwort">
+      <button type="submit">💾 Speichern</button>
+    </form>
+  </main>
+  <footer>
+    <img src="/static/images/licorne.gif" alt="Magisches Einhorn" class="licorne">
+    © 2025 Legenden der Welt von Jeddi – Alle Rechte vorbehalten
+  </footer>
+</body>
+</html>
